@@ -11,19 +11,17 @@ public class Snake_Ladder
 	static int count2=0;
 	static int position=0;
 	
-	//Array declaration.
-	static int arrayGame[]=new int[100];
-	
 	static Random r=new Random();
 	public static void main(String[] args)
 	{
 		
 		System.out.println("Lets play snake and ladder game ");
 		System.out.println("The player roll the die");
-		int random=r.nextInt(6);
-		int played=random+1;
-		System.out.println("Outcome of die is : "+played);
-		int i=0;
+		while(position < 100)
+		{		
+			int random=r.nextInt(6);
+			int played=random+1;
+			System.out.println("Dice value come is : "+played);
 			int randomCheck=r.nextInt(3);
 			if(randomCheck == noPlay)
 			{
@@ -31,30 +29,29 @@ public class Snake_Ladder
 			}
 			else if(randomCheck == ladder)
 			{
-				i=i+played;
+				position=position+played;
 				count1++;
-				System.out.println(i);
-				System.out.println("ladder "+count1);
+				System.out.println("Ladder come and update postion is : "+position);
 			}
 			else if(randomCheck == snake)
 			{
-				i=i-played;
+				position=position-played;
 				count2++;
-				System.out.println("Snake "+count2);
-				if(i < 0)
+				if(position < 0)
 				{
 					position=0;
-					System.out.println(position);
+					System.out.println("Position is from start : "+position);
 				}
 				else
 				{
-					System.out.println(i);
+					System.out.println("Snake come and update position is : "+position);
 				}
 				
+			}	
 				
-				
-			}
-			
+		}
+		System.out.println(count1);
+		System.out.println(count2);
 		
 	}
 		
