@@ -11,6 +11,13 @@ public class Snake_Ladder
 	static int count2=0;
 	static int position=0;
 	
+	public static int getDice()
+	{
+		int random=r.nextInt(6);
+		int played=random+1;
+		return played;
+	}
+	
 	static Random r=new Random();
 	public static void main(String[] args)
 	{
@@ -19,41 +26,41 @@ public class Snake_Ladder
 		System.out.println("The player roll the die");
 		while(position < 100)
 		{		
-			int random=r.nextInt(6);
-			int played=random+1;
-			System.out.println("Dice value come is : "+played);
+			int play=getDice();
+			System.out.println("Dice value come is : "+play);
 			int randomCheck=r.nextInt(3);
-			if(randomCheck == noPlay)
+			switch(randomCheck)
 			{
-				System.out.println("Player stay in the same position");
-			}
-			else if(randomCheck == ladder)
-			{
-				position=position+played;
-				count1++;
-				System.out.println("Ladder come and update postion is : "+position);
-			}
-			else if(randomCheck == snake)
-			{
-				position=position-played;
-				count2++;
-				if(position < 0)
-				{
-					position=0;
-					System.out.println("Position is from start : "+position);
-				}
-				else
-				{
-					System.out.println("Snake come and update position is : "+position);
-				}
+			
+			case 0:
+					if(randomCheck == noPlay)
+					{
+						System.out.println("Player stay in the same position");
+					}						
+			case 1:	
+					if(randomCheck == ladder)
+					{	
+						position=position+play;
+						count1++;
+						System.out.println("Ladder come and update postion is : "+position);
+					}
+			case 2: 	
+					if(randomCheck == snake)
+					{
+						position=position-play;
+						count2++;
+						if(position < 0)
+						{
+							position=0;
+							System.out.println("Position is from start : "+position);
 				
-			}	
-				
+						}
+						else
+						{
+							System.out.println("Snake come and update position is : "+position);
+						}				
+					}	  		
+			}			
 		}
-		System.out.println(count1);
-		System.out.println(count2);
-		
 	}
-		
-		
 }
