@@ -9,6 +9,7 @@ public class Snake_Ladder
 	//Variables.
 	static int count1=0;
 	static int count2=0;
+	static int position=0;
 	
 	//Array declaration.
 	static int arrayGame[]=new int[100];
@@ -39,8 +40,19 @@ public class Snake_Ladder
 			{
 				i=i-played;
 				count2++;
-				System.out.println(i);
 				System.out.println("Snake "+count2);
+				if(i < 0)
+				{
+					position=0;
+					System.out.println(position);
+				}
+				else
+				{
+					System.out.println(i);
+				}
+				
+				
+				
 			}
 			
 		
